@@ -7,21 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-service" />
         <module name="request-tracking-service" />
-        <module name="config-service" />
+        <module name="config-server" />
         <module name="simulate-service" />
         <module name="evaluation-service" />
         <module name="gateway-service" />
         <module name="request-service" />
         <module name="user-service" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-service" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-server" options="-parameters" />
       <module name="config-service" options="-parameters" />
-      <module name="eureka-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="evaluation-service" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="request-service" options="-parameters" />

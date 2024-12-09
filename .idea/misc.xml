@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/simulate-service/pom.xml" />
         <option value="$PROJECT_DIR$/evaluation-service/pom.xml" />
         <option value="$PROJECT_DIR$/request-tracking-service/pom.xml" />
+        <option value="$PROJECT_DIR$/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
       </list>
     </option>
   </component>

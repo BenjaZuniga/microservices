@@ -11,7 +11,7 @@
 	<groupId>api</groupId>
 	<artifactId>simulate-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user-service</name>
+	<name>simulate-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
