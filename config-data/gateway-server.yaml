@@ -6,9 +6,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761/eureka
-  instance:
-    hostname: localhost
+      defaultZone: http://eureka-server-service:8761/eureka
 
 spring:
   cloud:
@@ -16,24 +14,30 @@ spring:
       discovery:
         locator:
           enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
       routes:
         - id: simulate-service
           uri: lb://simulate-service
           predicates:
-            - Path=/api/simulate/**
+            - Path=/simulate/**
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/api/user/**
+            - Path=/users/**
         - id: request-service
           uri: lb://request-service
           predicates:
-            - Path=/api/request/**
+            - Path=/requests/**
         - id: evaluation-service
           uri: lb://evaluation-service
           predicates:
-            - Path=/api/evaluation/**
+            - Path=/evaluate/**
         - id: request-tracking-service
           uri: lb://request-tracking-service
           predicates:
-            - Path=/api/requestTracking/**
+            - Path=/requestTracking/**

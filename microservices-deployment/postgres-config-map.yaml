@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config-map
+  labels:
+    app: postgres-config-map
+data:
+  DB_HOST_USERS: users-db-service
+  DB_PORT_USERS: "5432"
+  DB_NAME_USERS: "db_users"
+  DB_HOST_REQUEST: request-db-service
+  DB_PORT_REQUEST: "5432"
+  DB_NAME_REQUEST: "db_request"

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evaluation-service-deployment
+  labels:
+    app: evaluation-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: evaluation-service-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: evaluation-service-deployment
+    spec:
+      containers:
+        - name: evaluation-service
+          image: benjazuniga/evaluation-service
+          ports:
+            - containerPort: 8092
+          env:
+            - name: SERVER_PORT
+              value: "0"

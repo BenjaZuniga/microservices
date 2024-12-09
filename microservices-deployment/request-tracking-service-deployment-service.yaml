@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: request-tracking-service-deployment
+  labels:
+    app: request-tracking-service-deployment
+spec:
+  selector:
+    matchLabels:
+      app: request-tracking-service-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: request-tracking-service-deployment
+    spec:
+      containers:
+        - name: request-tracking-service
+          image: benjazuniga/request-tracking-service
+          ports:
+            - containerPort: 8094
+          env:
+            - name: SERVER_PORT
+              value: "0"
