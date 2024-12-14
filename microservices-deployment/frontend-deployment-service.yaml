@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: prestabanco-frontend-container
-          image: benjazuniga/prestabanco-frontend
+          image: benjazuniga/frontend-service
           ports:
             - containerPort: 3000
 

@@ -15,7 +15,7 @@ spec:
         app: gateway-server-deployment
     spec:
       containers:
-        - name: config-server
+        - name: gateway-server
           image: benjazuniga/gateway-server
           ports:
             - containerPort: 8080

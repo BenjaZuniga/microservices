@@ -3,13 +3,16 @@ package api.evaluation_service.controllers;
 import api.evaluation_service.models.DocumentModel;
 import api.evaluation_service.models.EvaluationModel;
 import api.evaluation_service.models.RequestModel;
+import api.evaluation_service.models.UserModel;
 import api.evaluation_service.services.EvaluationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/evaluate")
 public class EvaluationController {
@@ -20,6 +23,11 @@ public class EvaluationController {
     @PostMapping("/")
     public ResponseEntity<RequestModel> evaluate(@RequestBody EvaluationModel evaluation) {
         return ResponseEntity.ok(evaluationService.evaluate(evaluation));
+    }
+
+    @GetMapping("/getUser/{id}")
+    public ResponseEntity<UserModel> getUser(@PathVariable Long id) {
+        return ResponseEntity.ok(evaluationService.getUser(id));
     }
 
     @GetMapping("/getRequests")

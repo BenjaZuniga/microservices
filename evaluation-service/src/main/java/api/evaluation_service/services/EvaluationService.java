@@ -3,6 +3,7 @@ package api.evaluation_service.services;
 import api.evaluation_service.models.EvaluationModel;
 import api.evaluation_service.models.RequestModel;
 import api.evaluation_service.models.DocumentModel;
+import api.evaluation_service.models.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpEntity;
@@ -166,13 +167,18 @@ public class EvaluationService {
 
     }
 
+    public UserModel getUser(Long id){
+        UserModel user = restTemplate.getForObject("http://user-service/users/" + id, UserModel.class);
+        return user;
+    }
+
     public ArrayList<RequestModel> getRequests(){
         ArrayList<RequestModel> requests = restTemplate.getForObject("http://request-service/requests/", ArrayList.class);
         return requests;
     }
 
     public RequestModel getRequest(Long requestId){
-        RequestModel request = restTemplate.getForObject("http://request-service/requests/"+requestId, RequestModel.class);
+        RequestModel request = restTemplate.getForObject("http://request-service/requests/"+ requestId, RequestModel.class);
         return request;
     }
 

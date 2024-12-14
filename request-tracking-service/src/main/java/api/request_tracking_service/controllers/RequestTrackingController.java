@@ -16,9 +16,14 @@ public class RequestTrackingController {
     @Autowired
     private RequestTrackingService requestTrackingService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/getByUser/{id}")
     public ResponseEntity<List<RequestModel>> getAllRequests(@PathVariable Long id) {
         return ResponseEntity.ok(requestTrackingService.getRequests(id));
+    }
+
+    @GetMapping("/getDetails/{id}")
+    public ResponseEntity<RequestModel> getRequest(@PathVariable Long id) {
+        return ResponseEntity.ok(requestTrackingService.getRequest(id));
     }
 
     @PostMapping("/costs")

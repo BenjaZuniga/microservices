@@ -24,6 +24,11 @@ public class RequestTrackingService {
         return requests;
     }
 
+    public RequestModel getRequest(Long id){
+        RequestModel request = restTemplate.getForObject("http://request-service/requests/" + id, RequestModel.class);
+        return request;
+    }
+
     public CostsModel getCosts(RequestModel request){
         CostsModel costs = new CostsModel();
         Long amount = request.getAmount();
@@ -38,7 +43,8 @@ public class RequestTrackingService {
         costs.setInsurance1(insurance1);
         costs.setInsurance2(insurance2);
         costs.setAdministration(administration);
-        costs.setMonthlyCost(total);
+        costs.setMonthlyCost(monthly);
+        costs.setTotalCost(total);
 
         return costs;
 
